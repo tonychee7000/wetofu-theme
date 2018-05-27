@@ -1,0 +1,30 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ partial "header.html" . }}
+
+{{ $data := .Data }}
+
+{{ range $key, $value := .Data.Terms }}
+<div class="row">
+    <a class="terms w-100" href="{{$baseurl}}/{{ $data.Plural }}/{{ $key | urlize }}">
+        <div class="card hov">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col mr-auto">
+                        {{ if eq $data.Plural "tags"}}
+                        <i class="fas fa-tag"></i>
+                        {{else}}
+                        <i class="fas fa-folder-open"></i>
+                        {{end}}
+                        {{ $key }}
+                    </div>
+                    <div class="col text-right">
+                        <span class="text-black-50">{{ len $value }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+{{ end }}
+
+{{ partial "footer.html" . }}

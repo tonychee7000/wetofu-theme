@@ -1,0 +1,47 @@
+{{ partial "header.html" . }}
+
+{{ $baseurl := .Site.BaseURL }}
+
+<div class="content">
+    <article>
+        <header>
+            <h3>{{ .Title }}</h3>
+            <div class="date">
+                {{ .Date.Format "2006年01月02日" }}
+            </div>
+            {{if .Params.categories }}
+            <div class="categories">
+            {{ range $index, $category := .Params.categories }}
+                <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>
+            {{ end }}
+            </div>
+            {{end}}
+        </header>
+        <div class="desc">{{ .Content }}</div>
+        <div class="tags">
+            {{if .Params.tags }}
+            {{ range $index, $tag := .Params.tags }}
+                <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
+            {{ end }}
+            {{end}}
+        </div>
+    </article>
+    <div class="prev-next">
+        <p>
+            {{ if .Prev }}
+                <a href="{{.Prev.Permalink}}" class="btn btn-primary"> <i class="fas fa-chevron-left"></i> {{.Prev.Title}} </a>
+            {{ else }}
+                <a href="#" class="btn btn-primary disabled"><i class="fas fa-chevron-left"></i> 没有了</span>
+            {{ end }}
+        </p>
+        <p>
+            {{ if .Next }}
+                <a href="{{.Next.Permalink}}" class="btn btn-primary"><i class="fas fa-chevron-right"></i> {{.Next.Title}} </a>
+            {{ else }}
+                <a href="#" class="btn btn-primary disabled"><i class="fas fa-chevron-right"></i> 没有了</span>
+            {{ end }}
+        </p>
+    </div>
+</div>
+
+{{ partial "footer.html" . }}

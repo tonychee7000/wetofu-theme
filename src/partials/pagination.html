@@ -1,0 +1,16 @@
+<div class="prev-next">
+    <p>
+        {{ if .Prev }}
+            <a href="{{.Prev.URL}}" class="btn btn-primary"> <i class="fas fa-chevron-left"></i> 上一页 </a>
+        {{ else }}
+            <a href="#" class="btn btn-primary disabled"><i class="fas fa-chevron-left"></i> 没有了</span>
+        {{ end }}
+    </p>
+    <p>
+        {{ if .Next }}
+            <a href="{{.Next.URL}}" class="btn btn-primary"><i class="fas fa-chevron-right"></i> 下一页 </a>
+        {{ else }}
+            <a href="#" class="btn btn-primary disabled"><i class="fas fa-chevron-right"></i> 没有了</span>
+        {{ end }}
+    </p>
+</div>

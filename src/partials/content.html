@@ -1,0 +1,31 @@
+{{ $baseurl := .Site.BaseURL }}
+
+{{ range $index, $page := .Paginator.Pages }}
+<div class="row">
+    <div class="card w-100">
+        <div class="card-body">
+            <details>
+                <summary>
+                    <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</h5>
+                        {{if .Params.categories }}
+                            <div class="categories">
+                                {{ range $index, $category := .Params.categories }}
+                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a> / 
+                                {{ end }}
+                            </div>
+                        {{end}}
+                </summary>
+                <div class="card-text">{{ .Summary }}</div>
+            </details>
+            <div class="tags">
+                {{ .Date.Format "2006年01月02日" }}
+                {{if .Params.tags }}
+                    {{ range $index, $tag := .Params.tags }}
+                    <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a> /
+                    {{ end }}
+                {{end}}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

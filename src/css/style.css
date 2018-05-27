@@ -105,3 +105,9 @@ div.hov:hover {
 a.terms:hover {
     text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+    span.resp {
+        display: none;
+    }
+}

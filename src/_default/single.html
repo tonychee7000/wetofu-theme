@@ -45,14 +45,20 @@
             <div class="row">
                 <div class="col mr-auto">
                     {{ if .Prev }}
-                        <a href="{{.Prev.Permalink}}" class="btn btn-primary"> <i class="fas fa-chevron-left"></i> {{.Prev.Title}} </a>
+                        <a href="{{.Prev.Permalink}}" class="btn btn-primary">
+                            <i class="fas fa-chevron-left"></i>
+                            <span class="resp">{{.Prev.Title}}</span>
+                        </a>
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled"><i class="fas fa-times-circle"></i> </a>
                     {{ end }}
                 </div>
                 <div class="col text-right">
                     {{ if .Next }}
-                        <a href="{{.Next.Permalink}}" class="btn btn-primary"><i class="fas fa-chevron-right"></i> {{.Next.Title}} </a>
+                        <a href="{{.Next.Permalink}}" class="btn btn-primary">
+                            <span class="resp">{{.Next.Title}}</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled"><i class="fas fa-times-circle"></i></a>
                     {{ end }}

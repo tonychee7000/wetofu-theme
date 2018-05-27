@@ -1,11 +1,31 @@
 {{ $baseurl := .Site.BaseURL }}
+            <div class="row"><p>&nbsp;</p></div>
+            <div class="row">
+                {{if .Site.Params.Links}}
+                    <footer class="links w-100">
+                        <span>{{if .Site.Params.Links.name}}{{.Site.Params.Links.name}}{{else}}Links:{{end}}</span>
+                        <ul>
+                            {{range .Site.Params.Links.item}}
+                                <li><a href="{{.url}}" target="_blank">{{.name}}</a></li>
+                            {{end}}
+                        </ul>
+                    </footer>
+                {{end}}
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col text-center">
+                    {{.Site.Copyright}}
+                </div>
+                <div class="col"></div>
+            </div>
         </div>
         <!-- SCRIPTS -->
         <!-- build:js js/main.min.js -->
         <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
         <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../../node_modules/highlight.js/lib/highlight.js"></script>
+        <script src="../../node_modules/highlightjs/highlight.pack.min.js"></script>
         <script src="../js/main.js"></script>
         <!-- endbuild -->
     </body>

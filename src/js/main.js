@@ -1,4 +1,2 @@
 'use strict'
-$(document).ready(function() {
-    hljs.initHighlightingOnLoad()
-})
+hljs.initHighlightingOnLoad()

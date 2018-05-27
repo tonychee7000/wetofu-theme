@@ -2,15 +2,17 @@
 
 {{ range $index, $page := .Paginator.Pages }}
 <div class="row">
-    <div class="card w-100">
+    <div class="card w-100 hov">
         <div class="card-body">
             <details>
                 <summary>
-                    <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</h5>
+                    <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
                         {{if .Params.categories }}
                             <div class="categories">
+                                {{ .Date.Format "2006年01月02日" }}
                                 {{ range $index, $category := .Params.categories }}
-                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a> / 
+                                    {{ if ne $index 0 }} · {{end}}
+                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>  
                                 {{ end }}
                             </div>
                         {{end}}
@@ -18,10 +20,11 @@
                 <div class="card-text">{{ .Summary }}</div>
             </details>
             <div class="tags">
-                {{ .Date.Format "2006年01月02日" }}
+                Tags: 
                 {{if .Params.tags }}
                     {{ range $index, $tag := .Params.tags }}
-                    <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a> /
+                        {{ if ne $index 0 }} · {{end}}
+                        <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
                     {{ end }}
                 {{end}}
             </div>

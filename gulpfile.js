@@ -16,12 +16,13 @@ var paths = {
     notFoundPage: 'src/404.html',
     header: 'src/partials/header.html',
     footer: 'src/partials/footer.html',
-    fonts: 'node_modules/@fortawesome/'
+    fonts: 'node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/*.*',
 }
 
 var dests = {
     scripts: 'static/js/',
     styles: 'static/css/',
+    fonts: 'static/webfonts',
     static: 'static/',
     layouts: 'layouts/',
     partials: 'layouts/partials',
@@ -32,6 +33,10 @@ var dests = {
     distFooter: 'dist/footer.html',
     distHeader: 'dist/header.html'
 }
+
+/**
+ * Starter: Highlight.js
+ */
 
 /**
  *  First Step: CSS and JS
@@ -112,6 +117,14 @@ gulp.task('remove-tmp', ['usemin', 'reput'], function() {
 gulp.task('reput', ['reput-css', 'reput-js', 'reput-header', 'reput-footer'])
 
 /**
+ * Forth Step: Font Awesome
+ */
+gulp.task('fonts', ['usemin'], function() {
+    return gulp.src(paths.fonts)
+    .pipe(gulp.dest(dests.fonts))
+})
+
+/**
  * Special Step: Clean all files
  */
 gulp.task('clean-layouts', function() {
@@ -127,5 +140,5 @@ gulp.task('clean', ['clean-layouts', 'clean-static'])
 /**
  * Global Step
  */
-gulp.task('build', ['usemin', 'html', 'reput', 'remove-tmp'])
+gulp.task('build', ['usemin', 'html', 'reput', 'fonts', 'remove-tmp'])
 gulp.task('default', ['build'])

@@ -1,14 +1,12 @@
 {{ $baseurl := .Site.BaseURL }}
         </div>
         <!-- SCRIPTS -->
-        <!-- build:js {{$baseurl}}/js/main.min.js -->
+        <!-- build:js js/main.min.js -->
         <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="../../node_modules/popper.js/dist/popper.min.js"></script>
+        <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../../node_modules/highlight.js/lib/highlight.js"></script>
+        <script src="../js/main.js"></script>
         <!-- endbuild -->
-        <script>
-            hljs.initHighlightingOnLoad()
-        </script>
     </body>
 </html>

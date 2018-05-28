@@ -12,7 +12,17 @@
         <meta name="twitter:url" content="https://tonychyi.wetofu.top">
         <meta name="twitter:description" content="Technology blog site of TonyChyi.">
         <meta name="twitter:image:src" content="https://tonychyi.wetofu.top/images/head.png">
-        <title>{{ .Title }}|{{.Site.Title}}</title>
+        <title>
+            {{if eq .Title .Site.Title}}
+                {{if .Site.Params.rename.home}}
+                    {{.Site.Params.rename.home}}
+                {{else}}
+                    Home
+                {{end}}
+            {{else}}
+                {{ .Title }}
+            {{end}}|{{.Site.Title}}
+        </title>
         <!-- STYLES -->
         <!-- build:css css/main.min.css -->
         <link ref="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css">

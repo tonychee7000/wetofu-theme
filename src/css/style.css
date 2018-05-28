@@ -106,8 +106,14 @@ a.terms:hover {
     text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     span.resp {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    span.resp_r {
         display: none;
     }
 }

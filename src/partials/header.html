@@ -75,62 +75,69 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <div class="row">
-                            {{with .Site.Params.email}}
-                                <div class="col">
-                                    <a class="nav-link" href="mailto:{{ . }}">
-                                        <i class="fas fa-at"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                            {{with .Site.Params.weibo}}
-                                <div class="col">
-                                    <a class="nav-link" href="https://www.weibo.com/{{ . }}">
-                                        <i class="fab fa-weibo"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                            {{with .Site.Params.facebook}}
-                                <div class="col">
-                                    <a class="nav-link" href="https://www.facebook.com/{{ . }}">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                            {{with .Site.Params.twitter}}
-                                <div class="col">
-                                    <a class="nav-link" href="https://twitter.com/{{ . }}">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                            {{with .Site.Params.gplus}}
-                                <div class="col">
-                                    <a class="nav-link" href="https://google.com/+{{ . }}">
-                                        <i class="fab fa-google-plus"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                            {{with .Site.Params.linkedin}}
-                                <div class="col">
-                                    <a class="nav-link" href="https://www.linkedin.com/in/{{ . }}">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                            {{with .Site.Params.github}}
-                                <div class="col">
-                                    <a class="nav-link" href="https://github.com/{{ . }}">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            {{end}}
-                                <div class="col">
-                                    <a class="nav-link" href="{{$baseurl}}/index.xml">
-                                        <i class="fas fa-rss"></i>
-                                    </a>
-                                </div>
-                        </div>
+                        <hr class="resp_r"/>
+                    </li>
+                    {{with .Site.Params.email}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:{{ . }}">
+                            <i class="fas fa-at"></i>
+                            <span class="resp_r">Mail</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{with .Site.Params.weibo}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.weibo.com/{{ . }}">
+                            <i class="fab fa-weibo"></i>
+                            <span class="resp_r">Weibo</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{with .Site.Params.facebook}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/{{ . }}">
+                            <i class="fab fa-facebook"></i>
+                            <span class="resp_r">Facebook</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{with .Site.Params.twitter}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/{{ . }}">
+                            <i class="fab fa-twitter"></i>
+                            <span class="resp_r">Twitter</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{with .Site.Params.gplus}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://google.com/+{{ . }}">
+                            <i class="fab fa-google-plus"></i>
+                            <span class="resp_r">Google+</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{with .Site.Params.linkedin}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/{{ . }}">
+                            <i class="fab fa-linkedin"></i>
+                            <span class="resp_r">LinkedIn</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{with .Site.Params.github}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/{{ . }}">
+                            <i class="fab fa-github"></i>
+                            <span class="resp_r">Github</span>
+                        </a>
+                    </li>
+                    {{end}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{$baseurl}}/index.xml">
+                            <i class="fas fa-rss"></i>
+                            <span class="resp_r">RSS</span>
+                        </a>
                     </li>
                 </ul>
             </div>

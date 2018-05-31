@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh">
     <head>
+        <base href="{{$baseurl}}">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=yes">
@@ -43,7 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{$baseurl}}">
+                        <a class="nav-link" href="/">
                             <i class="fas fa-home"></i>
                             {{if .Site.Params.rename.home}}
                                 {{.Site.Params.rename.home}}
@@ -53,7 +54,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{$baseurl}}/categories/">
+                        <a class="nav-link" href="/categories/">
                             <i class="fas fa-folder-open"></i>
                             {{if .Site.Params.rename.categories}}
                                 {{.Site.Params.rename.categories}}
@@ -63,7 +64,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{$baseurl}}/tags/">
+                        <a class="nav-link" href="/tags/">
                             <i class="fas fa-tags"></i>
                             {{if .Site.Params.rename.tags}}
                                 {{.Site.Params.rename.tags}}
@@ -75,7 +76,7 @@
                     {{ if .Site.Params.menu }}
                         {{ range .Site.Params.menu }}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{$baseurl}}{{.url}}">
+                                <a class="nav-link" href="{{.url}}">
                                     <i class="fas fa-{{.icon}}"></i>
                                     {{.name}}
                                 </a>
@@ -184,7 +185,7 @@
                     </li>
                     {{end}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{$baseurl}}/index.xml">
+                        <a class="nav-link" href="/index.xml">
                             <i class="fas fa-rss"></i>
                             <span class="resp_r">RSS</span>
                         </a>

@@ -1,11 +1,10 @@
-{{ $baseurl := .Site.BaseURL }}
 {{ partial "header.html" . }}
 
 {{ $data := .Data }}
 
 {{ range $key, $value := .Data.Terms }}
 <div class="row">
-    <a class="terms w-100" href="{{$baseurl}}/{{ $data.Plural }}/{{ $key | urlize }}">
+    <a class="terms w-100" href="/{{ $data.Plural }}/{{ $key | urlize }}">
         <div class="card hov">
             <div class="card-body">
                 <div class="row">

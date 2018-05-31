@@ -1,4 +1,3 @@
-{{ $baseurl := .Site.BaseURL }}
 
 {{ range $index, $page := .Paginator.Pages }}
 <div class="row">
@@ -12,7 +11,7 @@
                                 {{ .Date.Format "2006年01月02日" }}
                                 {{ range $index, $category := .Params.categories }}
                                     {{ if ne $index 0 }} · {{end}}
-                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>  
+                                    <a href="/categories/{{ $category | urlize }}/">{{ $category }}</a>  
                                 {{ end }}
                             </div>
                         {{end}}
@@ -24,7 +23,7 @@
                 {{if .Params.tags }}
                     {{ range $index, $tag := .Params.tags }}
                         {{ if ne $index 0 }} · {{end}}
-                        <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
+                        <a href="/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
                     {{ end }}
                 {{end}}
             </div>

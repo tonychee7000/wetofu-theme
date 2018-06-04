@@ -117,3 +117,7 @@ a.terms:hover {
         display: none;
     }
 }
+
+img#avatar {
+    max-width: 96px;
+}

@@ -13,6 +13,7 @@
         <meta name="twitter:url" content="{{$baseurl}}">
         <meta name="twitter:description" content="{{.Site.Params.desc}}">
         <meta name="twitter:image:src" content="{{$baseurl}}/images/head.png">
+        <link rel="alternate" href="/index.xml" title="{{.Site.Title}} - {{.Site.Params.desc}}" type="application/atom+xml">
         <title>
             {{if eq .Title .Site.Title}}
                 {{if .Site.Params.rename.home}}

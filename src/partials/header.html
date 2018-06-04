@@ -144,6 +144,14 @@
                         </a>
                     </li>
                     {{end}}
+                    {{with .Site.Params.gitlab}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://gitlab.com/{{ . }}">
+                            <i class="fab fa-gitlab"></i>
+                            <span class="resp_r">Gitlab</span>
+                        </a>
+                    </li>
+                    {{end}}
                     {{with .Site.Params.mastodon}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{.}}">

@@ -78,7 +78,7 @@
                         {{ range .Site.Params.menu }}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{.url}}">
-                                    <i class="fas fa-{{.icon}}"></i>
+                                    <i class="{{if .brand}}fab{{else}}fas{{end}} fa-{{.icon}}"></i>
                                     {{.name}}
                                 </a>
                             </li>

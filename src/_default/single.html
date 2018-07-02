@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-
+{{ $baseurl := .Site.BaseURL }}
 <div class="row">
     <div class="card w-100">
         <div class="card-body">
@@ -16,7 +16,7 @@
                                 <div class="categories">
                                 {{ range $index, $category := .Params.categories }}
                                     {{ if ne $index 0 }} · {{end}}
-                                    <a href="/categories/{{ $category | urlize }}/">{{ $category }}</a>  
+                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>  
                                 {{ end }}
                                 </div>
                             {{end}}
@@ -29,7 +29,7 @@
                     Tags: 
                     {{ range $index, $tag := .Params.tags }}
                         {{ if ne $index 0 }} · {{end}}
-                        <a href="/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>  
+                        <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>  
                     {{ end }}
                 </div>
             </article>

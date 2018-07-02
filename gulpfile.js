@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-clean-css'),
     minifyJs = require('gulp-uglify'),
     clean = require('gulp-clean')
+    replace = require('gulp-replace')
 
 var paths = {
     scripts: 'src/js/**/*.js',
@@ -98,11 +99,13 @@ gulp.task('reput-js', ['usemin'], function() {
 
 gulp.task('reput-header', ['html-partials'], function() {
     return gulp.src(dests.distHeader)
+    .pipe(replace('css/main.min.css', '{{$baseurl}}/css/main.min.css'))
     .pipe(gulp.dest(dests.partials))
 })
 
 gulp.task('reput-footer', ['html-partials'], function() {
     return gulp.src(dests.distFooter)
+    .pipe(replace('js/main.min.js', '{{$baseurl}}/js/main.min.js'))
     .pipe(gulp.dest(dests.partials))
 })
 

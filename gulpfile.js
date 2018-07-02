@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
     minifyCss = require('gulp-clean-css'),
     minifyJs = require('gulp-uglify'),
-    clean = require('gulp-clean')
+    clean = require('gulp-clean'),
     replace = require('gulp-replace')
 
 var paths = {

@@ -77,7 +77,7 @@
                     {{ if .Site.Params.menu }}
                         {{ range .Site.Params.menu }}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{$baseurl}}{{.url}}">
+                                <a class="nav-link" href="{{if .outerlink}}{{.url}}{{else}}{{$baseurl}}{{.url}}{{end}}">
                                     <i class="{{if .brand}}fab{{else}}fas{{end}} fa-{{.icon}}"></i>
                                     {{.name}}
                                 </a>

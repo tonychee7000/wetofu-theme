@@ -97,6 +97,14 @@
                         </a>
                     </li>
                     {{end}}
+                    {{with .Site.Params.xmpp}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="xmpp:{{ . }}?message">
+                            <i class="fas fa-comments"></i>
+                            <span class="resp_r">XMPP</span>
+                        </a>
+                    </li>
+                    {{end}}
                     {{with .Site.Params.weibo}}
                     <li class="nav-item">
                         <a class="nav-link" href="https://www.weibo.com/{{ . }}">

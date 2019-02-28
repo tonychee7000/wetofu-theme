@@ -105,6 +105,14 @@
                         </a>
                     </li>
                     {{end}}
+                    {{with .Site.Params.telegram}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://t.me/{{.}}">
+                            <i class="fab fa-telegram"></i>
+                            <span class="resp_r">XMPP</span>
+                        </a>
+                    </li>
+                    {{end}}
                     {{with .Site.Params.weibo}}
                     <li class="nav-item">
                         <a class="nav-link" href="https://www.weibo.com/{{ . }}">

@@ -1,6 +1,6 @@
-article>div.desc>p {
+/*article>div.desc>p {
     text-indent: 2em;
-}
+}*/
 
 article>div.desc>p>img {
     max-width: 85%;

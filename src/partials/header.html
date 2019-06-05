@@ -169,6 +169,14 @@
                         </a>
                     </li>
                     {{end}}
+                    {{with .Site.Params.matrix}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://matrix.to/#/{{ . }}">
+                            <i class="fas fa-comment-dots"></i>
+                            <span class="resp_r">Matrix Chat</span>
+                        </a>
+                    </li>
+                    {{end}}
                     {{with .Site.Params.mastodon}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{.}}" rel="me">

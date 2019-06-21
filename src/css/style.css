@@ -121,3 +121,9 @@ a.terms:hover {
 img#avatar {
     max-width: 96px;
 }
+
+@-moz-document url-prefix() {
+    summary {
+        display: block;
+    }
+}

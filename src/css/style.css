@@ -110,6 +110,9 @@ a.terms:hover {
     span.resp {
         display: none;
     }
+    ul.pagination {
+        display: none !important;
+    }
 }
 
 @media screen and (min-width: 992px) {

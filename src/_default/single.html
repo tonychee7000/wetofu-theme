@@ -50,7 +50,13 @@
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled">
                             <i class="fas fa-times-circle"></i> 
-                            <span class="resp"> 没有了</span>
+                            <span class="resp">
+                            {{if .Site.Params.rename.nocontent}}
+                                {{.Site.Params.rename.nocontent}}
+                            {{else}}
+                                NONE
+                            {{end}}
+                            </span>
                         </a>
                     {{ end }}
                 </div>
@@ -62,7 +68,13 @@
                         </a>
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled">
-                            <span class="resp"> 没有了</span>
+                            <span class="resp">
+                            {{if .Site.Params.rename.nocontent}}
+                                {{.Site.Params.rename.nocontent}}
+                            {{else}}
+                                NONE
+                            {{end}}
+                            </span>
                             <i class="fas fa-times-circle"></i>
                         </a>
                     {{ end }}

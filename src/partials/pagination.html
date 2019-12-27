@@ -4,50 +4,70 @@
         <div class="card-body">
             <div class="row">
                 <div class="col mr-auto">
-                    {{ if .Prev }}
-                        <a href="{{.Prev.URL}}" class="btn btn-primary">
-                            <i class="fas fa-chevron-left"></i> 
-                            <span class="resp">
-                            {{if .Site.Params.rename.prevpage}}
-                                {{.Site.Params.rename.prevpage}}
-                            {{else}}
-                                PREV
+                    {{ if .Paginator.Prev }}
+                        <a href="{{.Paginator.Prev.URL}}" class="btn btn-primary">
+                            <i class="fas fa-chevron-left"></i>
+                            <span>&nbsp;
+                            {{with .Site.Params.rename}}
+                                {{if .prevpage}}
+                                    {{.prevpage}}
+                                {{else}}
+                                    PREV
+                                {{end}}
                             {{end}}
                             </span>
                         </a>
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled">
                             <i class="fas fa-times-circle"></i>
-                            <span class="resp">
-                            {{if .Site.Params.rename.nocontent}}
-                                {{.Site.Params.rename.nocontent}}
-                            {{else}}
-                                NONE
+                            <span>&nbsp;
+                            {{with .Site.Params.rename}}
+                                {{if .nocontent}}
+                                    {{.nocontent}}
+                                {{else}}
+                                    NONE
+                                {{end}}
                             {{end}}
                             </span>
                         </a>
                     {{ end }}
                 </div>
-                <div class="col text-right">
-                    {{ if .Next }}
-                        <a href="{{.Next.URL}}" class="btn btn-primary">
-                            <span class="resp">
-                            {{if .Site.Params.rename.nextpage}}
-                                {{.Site.Params.rename.nextpage}}
-                            {{else}}
-                                NEXT
+                <ul class="pagination">
+                    {{range .Paginator.Pagers}}
+                    <li class="page-item {{if eq .PageNumber $.Paginator.PageNumber}}active{{end}}">
+                        <a class="page-link" href="/page/{{.PageNumber}}">
+                            {{.PageNumber}}
+                            {{if eq .PageNumber $.Paginator.PageNumber}}
+                            <span class="sr-only">(current)</span>
                             {{end}}
+                        </a>
+                    </li>
+                    {{end}}
+                </ul>
+                <div class="col text-right">
+                    {{ if .Paginator.Next }}
+                        <a href="{{.Paginator.Next.URL}}" class="btn btn-primary">
+                            <span>
+                            {{with .Site.Params.rename}}
+                                {{if .nextpage}}
+                                    {{.nextpage}}
+                                {{else}}
+                                    NEXT
+                                {{end}}
+                            {{end}}&nbsp;
                             </span>
                             <i class="fas fa-chevron-right"></i>
                         </a>
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled">
-                            <span class="resp">
-                            {{if .Site.Params.rename.nocontent}}
-                                {{.Site.Params.rename.nocontent}}
-                            {{else}}
-                                NONE
-                            {{end}}
+                            <span>
+                            {{with .Site.Params.rename}}
+                                {{if .nocontent}}
+                                    {{.nocontent}}
+                                {{else}}
+                                    NONE
+                                {{end}}
+                            {{end}}&nbsp;
                             </span>
                             <i class="fas fa-times-circle"></i>
                         </a>

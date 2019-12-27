@@ -9,8 +9,8 @@
                             <i class="fas fa-chevron-left"></i>
                             <span>&nbsp;
                             {{with .Site.Params.rename}}
-                                {{if .prevPage}}
-                                    {{.prevPage}}
+                                {{if .prevpage}}
+                                    {{.prevpage}}
                                 {{else}}
                                     PREV
                                 {{end}}
@@ -22,8 +22,8 @@
                             <i class="fas fa-times-circle"></i>
                             <span>&nbsp;
                             {{with .Site.Params.rename}}
-                                {{if .noContent}}
-                                    {{.noContent}}
+                                {{if .nocontent}}
+                                    {{.nocontent}}
                                 {{else}}
                                     NONE
                                 {{end}}
@@ -49,8 +49,8 @@
                         <a href="{{.Paginator.Next.URL}}" class="btn btn-primary">
                             <span>
                             {{with .Site.Params.rename}}
-                                {{if .nextPage}}
-                                    {{.nextPage}}
+                                {{if .nextpage}}
+                                    {{.nextpage}}
                                 {{else}}
                                     NEXT
                                 {{end}}
@@ -62,8 +62,8 @@
                         <a href="#" class="btn btn-primary disabled">
                             <span>
                             {{with .Site.Params.rename}}
-                                {{if .noContent}}
-                                    {{.noContent}}
+                                {{if .nocontent}}
+                                    {{.nocontent}}
                                 {{else}}
                                     NONE
                                 {{end}}

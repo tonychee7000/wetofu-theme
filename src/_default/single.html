@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="date">
-                                {{ .Date.Format "2006年01月02日" }}
+                                {{ .Date.Format .Site.Params.dateFormat }}
                             </div>
                             <div>&nbsp;</div>
                             {{if .Params.categories }}
@@ -51,8 +51,8 @@
                         <a href="#" class="btn btn-primary disabled">
                             <i class="fas fa-times-circle"></i> 
                             <span class="resp">&nbsp;
-                            {{if .Site.Params.rename.nocontent}}
-                                {{.Site.Params.rename.nocontent}}
+                            {{if .Site.Params.rename.noContent}}
+                                {{.Site.Params.rename.noContent}}
                             {{else}}
                                 NONE
                             {{end}}
@@ -69,8 +69,8 @@
                     {{ else }}
                         <a href="#" class="btn btn-primary disabled">
                             <span class="resp">
-                            {{if .Site.Params.rename.nocontent}}
-                                {{.Site.Params.rename.nocontent}}
+                            {{if .Site.Params.rename.noContent}}
+                                {{.Site.Params.rename.noContent}}
                             {{else}}
                                 NONE
                             {{end}}&nbsp;

@@ -216,6 +216,14 @@
                         </a>
                     </li>
                     {{end}}
+                    {{with .Site.Params.keybase}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://keybase.io/{{.}}">
+                            <i class="fab fa-keybase"></i>
+                            <span class="resp_r">Keybase</span>
+                        </a>
+                    </li>
+                    {{end}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{$baseurl}}/index.xml">
                             <i class="fas fa-rss"></i>

@@ -5,7 +5,8 @@
                     <footer class="links w-100">
                         <span>{{if .Site.Params.Links.name}}{{.Site.Params.Links.name}}{{else}}Links:{{end}}</span>
                         <ul>
-                            {{range .Site.Params.Links.item}}
+                            {{range $index, $item := .Site.Params.Links.item}}
+                                {{ if ne $index 0 }} · {{end}}
                                 <li><a href="{{.url}}" target="_blank" rel="noopener">{{.name}}</a></li>
                             {{end}}
                         </ul>

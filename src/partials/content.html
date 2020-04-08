@@ -22,7 +22,7 @@
                 Tags: 
                 {{if .Params.tags }}
                     {{ range $index, $tag := .Params.tags }}
-                        {{ if ne $index 0 }} · {{end}}
+                        {{ if ne $index 0 }}· {{end}}
                         <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
                     {{ end }}
                 {{end}}

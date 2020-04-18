@@ -35,7 +35,7 @@
                 <ul class="pagination">
                     {{range .Paginator.Pagers}}
                     <li class="page-item {{if eq .PageNumber $.Paginator.PageNumber}}active{{end}}">
-                        <a class="page-link" href="/page/{{.PageNumber}}">
+                        <a class="page-link" href="/page/{{.PageNumber}}/">
                             {{.PageNumber}}
                             {{if eq .PageNumber $.Paginator.PageNumber}}
                             <span class="sr-only">(current)</span>

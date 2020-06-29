@@ -6,25 +6,25 @@
             <details>
                 <summary>
                     <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
-                        {{if .Params.categories }}
-                            <div class="categories">
-                                {{ .Date.Format .Site.Params.dateFormat }}
-                                {{ range $index, $category := .Params.categories }}
-                                    {{ if ne $index 0 }} · {{end}}
-                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>  
-                                {{ end }}
-                            </div>
-                        {{end}}
+                    {{if .Params.categories }}
+                    <div class="categories">
+                        {{ .Date.Format .Site.Params.dateFormat }}
+                        {{ range $index, $category := .Params.categories }}
+                        {{ if ne $index 0 }} · {{end}}
+                        <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>
+                        {{ end }}
+                    </div>
+                    {{end}}
                 </summary>
                 <div class="card-text">{{ .Summary }}</div>
             </details>
             <div class="tags">
-                Tags: 
+                Tags:
                 {{if .Params.tags }}
-                    {{ range $index, $tag := .Params.tags }}
-                        {{ if ne $index 0 }}· {{end}}
-                        <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
-                    {{ end }}
+                {{ range $index, $tag := .Params.tags }}
+                {{ if ne $index 0 }}· {{end}}
+                <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
+                {{ end }}
                 {{end}}
             </div>
         </div>

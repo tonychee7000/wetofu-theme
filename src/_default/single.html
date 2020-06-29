@@ -13,70 +13,88 @@
                             </div>
                             <div>&nbsp;</div>
                             {{if .Params.categories }}
-                                <div class="categories">
+                            <div class="categories">
                                 {{ range $index, $category := .Params.categories }}
-                                    {{ if ne $index 0 }} · {{end}}
-                                    <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>  
+                                {{ if ne $index 0 }} · {{end}}
+                                <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>
                                 {{ end }}
-                                </div>
+                            </div>
                             {{end}}
+                            <div>&nbsp;</div>
+                            <div class="word-count">
+                                {{if .Site.Params.rename.wordCount.prefix}}
+                                {{.Site.Params.rename.wordCount.prefix}}
+                                {{else}}
+                                Word Count:
+                                {{end}}
+                                {{.WordCount}}
+                                {{if .Site.Params.rename.wordCount.suffix}}
+                                {{.Site.Params.rename.wordCount.suffix}}
+                                {{end}}
+                            </div>
                         </div>
                     </div>
                 </header>
-                <div class="row"><p>&nbsp;</p></div>
+                <div class="row">
+                    <p>&nbsp;</p>
+                </div>
                 <div class="desc card-text">{{ .Content }}</div>
                 <div class="tags">
-                    Tags: 
-                    {{ range $index, $tag := .Params.tags }}
+                    <span>
+                        Tags:
+                        {{ range $index, $tag := .Params.tags }}
                         {{ if ne $index 0 }} · {{end}}
-                        <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>  
-                    {{ end }}
+                        <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
+                        {{ end }}
+                    </span>
                 </div>
             </article>
         </div>
     </div>
 </div>
-<div class="row"><p> </p></div>
+<div class="row">
+    <p> </p>
+</div>
 <div class="prev-next row">
     <div class="card w-100">
         <div class="card-body">
             <div class="row">
                 <div class="col mr-auto">
                     {{ if .Next }}
-                        <a href="{{.Next.Permalink}}" class="btn btn-primary">
-                            <i class="fas fa-chevron-left"></i>
-                            <span class="resp">&nbsp;{{.Next.Title}}</span>
-                        </a>
+                    <a href="{{.Next.Permalink}}" class="btn btn-primary">
+                        <i class="fas fa-chevron-left"></i>
+                        <span class="resp">&nbsp;{{.Next.Title}}</span>
+                    </a>
                     {{ else }}
-                        <a href="#" class="btn btn-primary disabled">
-                            <i class="fas fa-times-circle"></i> 
-                            <span class="resp">&nbsp;
+                    <a href="#" class="btn btn-primary disabled">
+                        <i class="fas fa-times-circle"></i>
+                        <span class="resp">&nbsp;
                             {{if .Site.Params.rename.nocontent}}
-                                {{.Site.Params.rename.nocontent}}
+                            {{.Site.Params.rename.nocontent}}
                             {{else}}
-                                NONE
+                            NONE
                             {{end}}
-                            </span>
-                        </a>
+                        </span>
+                    </a>
                     {{ end }}
                 </div>
                 <div class="col text-right">
                     {{ if .Prev }}
-                        <a href="{{.Prev.Permalink}}" class="btn btn-primary">
-                            <span class="resp">{{.Prev.Title}}&nbsp;</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
+                    <a href="{{.Prev.Permalink}}" class="btn btn-primary">
+                        <span class="resp">{{.Prev.Title}}&nbsp;</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
                     {{ else }}
-                        <a href="#" class="btn btn-primary disabled">
-                            <span class="resp">
+                    <a href="#" class="btn btn-primary disabled">
+                        <span class="resp">
                             {{if .Site.Params.rename.nocontent}}
-                                {{.Site.Params.rename.nocontent}}
+                            {{.Site.Params.rename.nocontent}}
                             {{else}}
-                                NONE
+                            NONE
                             {{end}}&nbsp;
-                            </span>
-                            <i class="fas fa-times-circle"></i>
-                        </a>
+                        </span>
+                        <i class="fas fa-times-circle"></i>
+                    </a>
                     {{ end }}
                 </div>
             </div>

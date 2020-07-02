@@ -14,6 +14,7 @@ var paths = {
   defaults: 'src/_default/**/*.html',
   indexPage: 'src/index.html',
   notFoundPage: 'src/404.html',
+  serviceWorkerJs: 'src/serviceWorker.js',
   header: 'src/partials/header.html',
   footer: 'src/partials/footer.html',
   fonts: 'node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/*.*'
@@ -82,7 +83,13 @@ gulp.task('html-404', function () {
     .pipe(gulp.dest(dests.layouts))
 })
 
-gulp.task('html', gulp.parallel('html-partials', 'html-defaults', 'html-index', 'html-404'))
+gulp.task('service-worker', function () {
+  return gulp.src(paths.serviceWorkerJs)
+    .pipe(gulp.dest(dests.static))
+})
+
+gulp.task('html', gulp.parallel(
+  'html-partials', 'html-defaults', 'html-index', 'html-404', 'service-worker'))
 
 /**
  * Third Step: Put file to correct path.
@@ -123,17 +130,17 @@ gulp.task('fonts', function () {
  * Special Step: Clean all files
  */
 gulp.task('clean-layouts', gulp.series(function () {
-  return gulp.src(dests.layouts, {read: false}).pipe(clean())
+  return gulp.src(dests.layouts, { read: false }).pipe(clean())
 }))
 
 gulp.task('clean-static', gulp.series(function () {
-  return gulp.src(dests.static, {read: false}).pipe(clean())
+  return gulp.src(dests.static, { read: false }).pipe(clean())
 }))
 
 gulp.task('clean', gulp.series('clean-layouts', 'clean-static'))
 
 gulp.task('remove-tmp', function () {
-  return gulp.src(dests.dist, {read: false})
+  return gulp.src(dests.dist, { read: false })
     .pipe(clean())
 })
 

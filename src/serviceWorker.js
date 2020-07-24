@@ -21,6 +21,7 @@ const fileList = [
     "/js/",
     "/js/main.min.js"
 ]
+
 self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(cacheName).then(function (cache) {
@@ -30,10 +31,10 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
-    !/^http/.test(event.request.url) || 
-    event.respondWith(caches.match(event.request).then(function (response) {
-        // caches.match() always resolves
-        // but in case of success response will have value
+    if (event.request.url.match('^http')) return false;
+    if (event.request.url.match('/$')) return false;
+    
+    return event.respondWith(caches.match(event.request).then(function (response) {
         return response || fetch(event.request, {
             mode: 'no-cors'
         }).then(function (response) {

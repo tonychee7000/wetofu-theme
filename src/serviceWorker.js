@@ -30,11 +30,9 @@ self.addEventListener('install', function (event) {
     );
 });
 
-self.addEventListener('fetch', function (event) {
-    if (event.request.url.match('^http')) return false;
-    if (fileList.filter(e => event.request.url.match(e)).length === 0) return false;
-    
-    return event.respondWith(caches.match(event.request).then(function (response) {
+self.addEventListener('fetch', function (event) {   
+    !event.request.url.match('^http') || !fileList.filter(e => event.request.url.match(e)).length ||
+    event.respondWith(caches.match(event.request).then(function (response) {
         return response || fetch(event.request, {
             mode: 'no-cors'
         }).then(function (response) {

@@ -32,7 +32,7 @@ self.addEventListener('install', function (event) {
 
 self.addEventListener('fetch', function (event) {
     if (event.request.url.match('^http')) return false;
-    if (fileList.map(e => event.request.url.match(e)).length === 0) return false;
+    if (fileList.filter(e => event.request.url.match(e)).length === 0) return false;
     
     return event.respondWith(caches.match(event.request).then(function (response) {
         return response || fetch(event.request, {

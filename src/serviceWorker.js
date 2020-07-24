@@ -30,24 +30,21 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
+    !/^http/.test(event.request.url) || 
     event.respondWith(caches.match(event.request).then(function (response) {
         // caches.match() always resolves
         // but in case of success response will have value
-        if (response !== undefined) {
-            return response;
-        } else {
-            return fetch(event.request, {
-                mode: 'no-cors'
-            }).then(function (response) {
-                let responseClone = response.clone();
+        return response || fetch(event.request, {
+            mode: 'no-cors'
+        }).then(function (response) {
+            let responseClone = response.clone();
 
-                caches.open(cacheName).then(function (cache) {
-                    cache.put(event.request, responseClone);
-                });
-                return response;
-            }).catch(function () {
-                return caches.match('/sw-test/gallery/myLittleVader.jpg');
+            caches.open(cacheName).then(function (cache) {
+                cache.put(event.request, responseClone);
             });
-        }
+            return response;
+        }).catch(function () {
+            return caches.match('/404.html');
+        });
     }));
 });

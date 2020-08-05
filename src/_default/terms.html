@@ -2,7 +2,7 @@
 {{ partial "header.html" . }}
 
 {{ $data := .Data }}
-
+<section id="main">
 {{ range $key, $value := .Data.Terms }}
 <div class="row">
     <a class="terms w-100" href="{{$baseurl}}/{{ $data.Plural }}/{{ $key | urlize }}">
@@ -26,5 +26,7 @@
     </a>
 </div>
 {{ end }}
+
+</section>
 
 {{ partial "footer.html" . }}

@@ -1,5 +1,6 @@
 {{ $baseurl := .Site.BaseURL }}
 {{ range $index, $page := .Paginator.Pages }}
+<section id="main">
 <div class="row">
     <div class="card w-100 hov">
         <div class="card-body">
@@ -30,4 +31,5 @@
         </div>
     </div>
 </div>
+</section>
 {{ end }}

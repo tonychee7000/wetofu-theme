@@ -8,7 +8,7 @@
                     <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
                     {{if .Params.categories }}
                     <div class="categories">
-                        {{ .Date.Format .Site.Params.dateFormat }}
+                        <time datetime="{{ .Date.Format .Site.Params.dateFormat }}">{{ .Date.Format .Site.Params.dateFormat }}</time>
                         {{ range $index, $category := .Params.categories }}
                         {{ if ne $index 0 }} · {{end}}
                         <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>

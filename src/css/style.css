@@ -46,6 +46,10 @@ summary::-webkit-details-marker {
     display:none
 }
 
+summary::marker {
+    content: "";
+}
+
 summary:before {
     content: "＋";
     transition: color 0.25s ease;
